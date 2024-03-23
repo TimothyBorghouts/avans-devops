@@ -1,4 +1,5 @@
 ﻿using Avans_DevOps.Domain.Users;
+using Avans_DevOps.Domain.Sprintoes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Avans_DevOps.Domain.Forum;
+
 
 namespace Avans_DevOps.Domain
 {
@@ -16,9 +18,9 @@ namespace Avans_DevOps.Domain
         //private Forum forum { get; set; }
 
 
-        //private List<Sprint> sprints { get; set; }
-        private List<Pipeline> pipelines { get; set; }
 
+        private List<Sprint> sprints { get; set; }
+        private List<Pipeline> pipelines { get; set; }
 
         private ScrumMaster scrumMaster { get; set; }
         private ProductOwner productOwner { get; set; }
@@ -35,11 +37,11 @@ namespace Avans_DevOps.Domain
             this.developers = developers;
             this.testers = testers;
         }
-        
-        //public void AddSprint(Sprint sprint)
-        //{
-        //    sprints.Add(sprint);
-        //}
+
+        public void AddSprint(Sprint sprint)
+        {
+            sprints.Add(sprint);
+        }
 
         public void AddPipeline(Pipeline pipeline)
         {

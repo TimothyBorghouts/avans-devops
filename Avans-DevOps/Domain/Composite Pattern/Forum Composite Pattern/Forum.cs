@@ -11,12 +11,12 @@ namespace Avans_DevOps.Domain.Forum
     {
         public string Title { get; set; }
         public ReleaseSprint sprint { get; set; }
-        public List<Thread> Threads { get; set; }
+        public List<DiscussionThread> Threads { get; set; }
 
         public Forum(string title)
         {
             Title = title;
-            Threads = new List<Thread>();
+            Threads = new List<DiscussionThread>();
         }
     }
 }

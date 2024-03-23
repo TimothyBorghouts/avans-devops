@@ -7,9 +7,9 @@ using Avans_DevOps.Domain.Users;
 
 namespace Avans_DevOps.Domain.Sprint
 {
-    public class ReleaseSprint : Sprint
+    public class FeedbackSprint : Sprint
     {
-        public ReleaseSprint(string name, DateTime startDate, DateTime endDate, List<User> users) : base(name, startDate, endDate, users)
+        public FeedbackSprint(string name, DateTime startDate, DateTime endDate) : base(name, startDate, endDate)
         {
         }
     }
