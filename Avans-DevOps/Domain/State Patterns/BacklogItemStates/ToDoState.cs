@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Avans_DevOps.Domain.States.BacklogItemStates;
+
 namespace Avans_DevOps.Domain.States.BacklogItemStates
 {
-    public class TestingState : IBacklogItemState
+    public class ToDoState : IBacklogItemState
     {
-        BacklogItem backlogItem;
+        private BacklogItem backlogItem;
 
-        public TestingState(BacklogItem backlogItem)
+        public ToDoState(BacklogItem backlogItem)
         {
             this.backlogItem = backlogItem;
         }
@@ -22,7 +25,8 @@ namespace Avans_DevOps.Domain.States.BacklogItemStates
 
         public void SetDoing()
         {
-            throw new NotImplementedException();
+            backlogItem.changeState(new DoingState(backlogItem));
+            Debug.WriteLine("Changed to state Doing.");
         }
 
         public void SetReadyForTesting()

@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Avans_DevOps.Domain.States.BacklogItemStates;
-using Avans_DevOps.Domain.Sprint;
 using Avans_DevOps.Domain.Users;
 
 
@@ -33,19 +32,14 @@ namespace Avans_DevOps.Domain
             Activities = new List<Activity>();
         }
 
-        public List<Activity> GetActivities()
+        public void changeState(IBacklogItemState state)
         {
-            return Activities;
-        }
-
-        public void AddActivity(Activity activity)
-        {
-            Activities.Add(activity);
+            BacklogItemState = state;
         }
 
         public void SetTodoState()
         {
-            BacklogItemState.setToDo();
+            BacklogItemState.SetToDo();
         }
 
         public void SetDoingState()
@@ -72,5 +66,32 @@ namespace Avans_DevOps.Domain
         {
             BacklogItemState.SetDone();
         }
+
+        public List<Activity> GetActivities()
+        {
+            return Activities;
+        }
+
+        public void AddActivity(Activity activity)
+        {
+            Activities.Add(activity);
+        }
+
+        public void RemoveActivity(Activity activity)
+        {
+            Activities.Remove(activity);
+        }
+
+        public bool AreActivitiesDone()
+        {
+            foreach (Activity activity in Activities)
+            {
+                if (!activity.IsDone)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }   
     }
 }

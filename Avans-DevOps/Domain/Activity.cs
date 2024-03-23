@@ -9,14 +9,14 @@ namespace Avans_DevOps.Domain
 {
     public class Activity
     {
-        private string name { get; set; }
-        private bool isDone { get; set; }
-        private Developer developer { get; set; }
+        private string Name { get; set; }
+        public bool IsDone { get; set; }
+        private Developer Developer { get; set; }
         public Activity(string name,  Developer developer)
         {
-            this.name = name;
-            this.developer = developer;
-            isDone = false;
+            this.Name = name;
+            this.Developer = developer;
+            IsDone = false;
         }
     }
 }

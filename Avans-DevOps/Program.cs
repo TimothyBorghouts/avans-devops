@@ -1,4 +1,5 @@
 ﻿using Avans_DevOps.Domain;
+using Avans_DevOps.Domain.Forum;
 using Avans_DevOps.Domain.Sprint;
 using Avans_DevOps.Domain.Users;
 
@@ -19,10 +20,10 @@ ProductBacklog productBacklog = new ProductBacklog();
 Project avansDevopsProject = new Project("Avans DevOps", productBacklog, joy, timothy, new List<Developer> { matthijs, jaron, lucas }, new List<Tester> { ayrianna, arno, ruud });
 
 //Sprints
-Sprint firstSprint = new FeedbackSprint("Sprint 1", new DateTime(2024, 1, 1), new DateTime(2024, 3, 30));
-Sprint secondSprint = new ReleaseSprint("Sprint 2", new DateTime(2024, 3, 1), new DateTime(2024, 6, 30));
-Sprint thirdSprint = new FeedbackSprint("Sprint 3", new DateTime(2024, 6, 1), new DateTime(2024, 9, 30));
-Sprint fourthSprint = new ReleaseSprint("Sprint 4", new DateTime(2024, 10, 1), new DateTime(2024, 12, 30));
+//Sprint firstSprint = new FeedbackSprint("Sprint 1", new DateTime(2024, 1, 1), new DateTime(2024, 3, 30));
+//Sprint secondSprint = new ReleaseSprint("Sprint 2", new DateTime(2024, 3, 1), new DateTime(2024, 6, 30));
+//Sprint thirdSprint = new FeedbackSprint("Sprint 3", new DateTime(2024, 6, 1), new DateTime(2024, 9, 30));
+//Sprint fourthSprint = new ReleaseSprint("Sprint 4", new DateTime(2024, 10, 1), new DateTime(2024, 12, 30));
 
 //Backlog Items and Activities
 BacklogItem backlogItem = new BacklogItem("Inlog pagina maken", matthijs);
@@ -30,13 +31,30 @@ backlogItem.AddActivity(new Activity("Frontend login pagina designen", lucas));
 backlogItem.AddActivity(new Activity("Use cases opstellen", jaron));
 backlogItem.AddActivity(new Activity("Database opzetten", matthijs));
 
-BacklogItem backlogItem2 = new BacklogItem("Gebruikers formuleer maken", jaron);
-backlogItem2.AddActivity(new Activity("Field validation maken", lucas));
-backlogItem2.AddActivity(new Activity("Form designen", jaron));
-backlogItem2.AddActivity(new Activity("", lucas));
+backlogItem.SetDoingState();
+backlogItem.SetReadyForTestingState();
+backlogItem.SetTestingState();
+backlogItem.SetTestedState();
+backlogItem.SetDoneState();
+
+//BacklogItem backlogItem2 = new BacklogItem("Gebruikers formuleer maken", jaron);
+//backlogItem2.AddActivity(new Activity("Field validation maken", lucas));
+//backlogItem2.AddActivity(new Activity("Form designen", jaron));
+//backlogItem2.AddActivity(new Activity("Designen van form page", lucas));
+
 
 productBacklog.addItem(backlogItem);
-productBacklog.addItem(backlogItem2);
+//productBacklog.addItem(backlogItem2);
+
+
+backlogItem.SetReadyForTestingState();
+
+//Forum, Threads and Posts
+//Forum forum = new Forum("Avans DevOps Forum");
+//Thread newThread = new Thread("Welkom op het forum!");
+//forum.Threads.Add(newThread);
+//newThread.Posts.Add(new Post("Welkom op het forum! Hier kunnen we discussiëren over het Avans DevOps project.", timothy));
+//newThread.Posts.Add(new Post("Hallo! Ik ben Matthijs en ik ben een developer.", matthijs));
 
 
 

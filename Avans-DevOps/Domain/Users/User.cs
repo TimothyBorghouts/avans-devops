@@ -11,12 +11,14 @@ namespace Avans_DevOps.Domain.Users
         private string Name;
         private string Email;
         private string Password;
+        private string NotificationPlace;
 
-        public User(string name, string email, string password)
+        public User(string name, string email, string password, string notificationPlace)
         {
             Name = name;
             Email = email;
             Password = password;
+            NotificationPlace = notificationPlace;
         }
 
     }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Avans_DevOps.Composits.Leaves
+namespace Avans_DevOps.Domain
 {
-    public class Package
+    public class Pipeline
     {
     }
 }

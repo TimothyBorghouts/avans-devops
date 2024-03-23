@@ -1,30 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Avans_DevOps.Domain.States.BacklogItemStates;
-
 namespace Avans_DevOps.Domain.States.BacklogItemStates
 {
-    public class ToDoState : IBacklogItemState
+    public class ReadyForTestingState : IBacklogItemState
     {
-        private BacklogItem backlogItem;
+        BacklogItem backlogItem;
 
-        public ToDoState(BacklogItem backlogItem)
+        public ReadyForTestingState(BacklogItem backlogItem)
         {
             this.backlogItem = backlogItem;
         }
 
         public void SetToDo()
         {
-            throw new NotImplementedException();
+            backlogItem.changeState(new ToDoState(backlogItem));
+            Debug.WriteLine("Changed to state ToDo.");
         }
 
         public void SetDoing()
         {
-            backlogItem.SetDoingState();
+            throw new NotImplementedException();
         }
 
         public void SetReadyForTesting()
@@ -34,7 +34,8 @@ namespace Avans_DevOps.Domain.States.BacklogItemStates
 
         public void SetTesting()
         {
-            throw new NotImplementedException();
+            backlogItem.changeState(new TestingState(backlogItem));
+            Debug.WriteLine("Changed to state Testing.");
         }
 
         public void SetTested()

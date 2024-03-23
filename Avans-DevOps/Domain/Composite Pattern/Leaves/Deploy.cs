@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Avans_DevOps.Composits
+namespace Avans_DevOps.Domain.Composits.Leaves
 {
-    public interface IAction
+    public class Deploy
     {
     }
 }

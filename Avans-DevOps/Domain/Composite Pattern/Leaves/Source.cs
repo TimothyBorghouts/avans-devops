@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Avans_DevOps.Composits.Leaves
+namespace Avans_DevOps.Domain.Composits.Leaves
 {
-    public class Test
+    public class Source
     {
     }
 }

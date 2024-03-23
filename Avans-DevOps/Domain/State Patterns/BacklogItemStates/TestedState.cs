@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,8 @@ namespace Avans_DevOps.Domain.States.BacklogItemStates
 
         public void SetToDo()
         {
-            throw new NotImplementedException();
+            backlogItem.changeState(new ToDoState(backlogItem));
+            Debug.WriteLine("Changed to state ToDo.");
         }
 
         public void SetDoing()
@@ -27,7 +29,8 @@ namespace Avans_DevOps.Domain.States.BacklogItemStates
 
         public void SetReadyForTesting()
         {
-            throw new NotImplementedException();
+           backlogItem.changeState(new ReadyForTestingState(backlogItem));
+            Debug.WriteLine("Changed to state ReadyForTesting.");
         }
 
         public void SetTesting()
@@ -42,7 +45,15 @@ namespace Avans_DevOps.Domain.States.BacklogItemStates
 
         public void SetDone()
         {
-            throw new NotImplementedException();
+            if (backlogItem.AreActivitiesDone())
+            {
+                backlogItem.changeState(new DoneState(backlogItem));
+            } else
+            {
+                throw new InvalidOperationException("Not all activities are done.");
+            }
+                
+            Debug.WriteLine("Changed to state Done.");
         }
     }
 }
