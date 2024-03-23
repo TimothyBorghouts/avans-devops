@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 using Avans_DevOps.Domain.Forum;
 
+
 namespace Avans_DevOps.Domain
 {
     public class Project
@@ -16,9 +17,8 @@ namespace Avans_DevOps.Domain
         //private Forum forum { get; set; }
 
 
-        //private List<Sprint> sprints { get; set; }
-        private List<Pipeline> pipelines { get; set; }
 
+        private List<Pipeline> pipelines { get; set; }
 
         private ScrumMaster scrumMaster { get; set; }
         private ProductOwner productOwner { get; set; }
@@ -35,7 +35,7 @@ namespace Avans_DevOps.Domain
             this.developers = developers;
             this.testers = testers;
         }
-        
+
         //public void AddSprint(Sprint sprint)
         //{
         //    sprints.Add(sprint);
