@@ -4,14 +4,14 @@ using Avans_DevOps.Domain.Sprint;
 using Avans_DevOps.Domain.Users;
 
 //Users
-ProductOwner timothy = new ProductOwner("Timothy", "timothy@gmail.com", "appel123");
-ScrumMaster joy = new ScrumMaster("Joy", "joy@gmail.com", "druif123");
-Developer matthijs = new Developer("Matthijs", "matthijs@gmail.com", "banaan123");
-Developer jaron = new Developer("Jaron", "jaron@gmail.com", "peer123");
-Developer lucas = new Developer("Lucas", "lucas@gmail.com", "kiwi123");
-Tester ayrianna = new Tester("Ayrianna", "ayrianna@gmail.com" , "sinaasappel123");
-Tester arno = new Tester("Arno", "arno@gmail.com" , "mango123");
-Tester ruud = new Tester("Ruud", "ruud@gmail.com" , "ananas123");
+ProductOwner timothy = new ProductOwner("Timothy", "timothy@gmail.com", "appel123", "email");
+ScrumMaster joy = new ScrumMaster("Joy", "joy@gmail.com", "druif123", "email");
+Developer matthijs = new Developer("Matthijs", "matthijs@gmail.com", "banaan123", "slack");
+Developer jaron = new Developer("Jaron", "jaron@gmail.com", "peer123", "email");
+Developer lucas = new Developer("Lucas", "lucas@gmail.com", "kiwi123", "slack");
+Tester ayrianna = new Tester("Ayrianna", "ayrianna@gmail.com" , "sinaasappel123", "email");
+Tester arno = new Tester("Arno", "arno@gmail.com" , "mango123" , "email");
+Tester ruud = new Tester("Ruud", "ruud@gmail.com" , "ananas123", "slack");
 
 //Product Backlog
 ProductBacklog productBacklog = new ProductBacklog();
@@ -27,14 +27,23 @@ Project avansDevopsProject = new Project("Avans DevOps", productBacklog, joy, ti
 
 //Backlog Items and Activities
 BacklogItem backlogItem = new BacklogItem("Inlog pagina maken", matthijs);
-backlogItem.AddActivity(new Activity("Frontend login pagina designen", lucas));
-backlogItem.AddActivity(new Activity("Use cases opstellen", jaron));
-backlogItem.AddActivity(new Activity("Database opzetten", matthijs));
+Activity activity = new Activity("Database connectie maken", matthijs);
+Activity activity1 = new Activity("Backend login pagina designen", jaron);
+Activity activity2 = new Activity("Frontend login pagina designen", lucas);
+Activity activity3 = new Activity("Use cases opstellen", jaron);
+backlogItem.AddActivity(activity);
+backlogItem.AddActivity(activity1);
+backlogItem.AddActivity(activity2);
+backlogItem.AddActivity(activity3);
 
 backlogItem.SetDoingState();
 backlogItem.SetReadyForTestingState();
 backlogItem.SetTestingState();
 backlogItem.SetTestedState();
+activity.finishActivity();
+activity1.finishActivity();
+activity2.finishActivity();
+activity3.finishActivity();
 backlogItem.SetDoneState();
 
 //BacklogItem backlogItem2 = new BacklogItem("Gebruikers formuleer maken", jaron);
@@ -45,9 +54,6 @@ backlogItem.SetDoneState();
 
 productBacklog.addItem(backlogItem);
 //productBacklog.addItem(backlogItem2);
-
-
-backlogItem.SetReadyForTestingState();
 
 //Forum, Threads and Posts
 //Forum forum = new Forum("Avans DevOps Forum");

@@ -13,10 +13,10 @@ namespace Avans_DevOps.Domain
     {
         private string Name { get; set; }
         private ProductBacklog productBacklog { get; set; }
-        private Forum forum { get; set; }
+        //private Forum forum { get; set; }
 
 
-        private List<Sprint> sprints { get; set; }
+        //private List<Sprint> sprints { get; set; }
         private List<Pipeline> pipelines { get; set; }
 
 
@@ -36,10 +36,10 @@ namespace Avans_DevOps.Domain
             this.testers = testers;
         }
         
-        public void AddSprint(Sprint sprint)
-        {
-            sprints.Add(sprint);
-        }
+        //public void AddSprint(Sprint sprint)
+        //{
+        //    sprints.Add(sprint);
+        //}
 
         public void AddPipeline(Pipeline pipeline)
         {

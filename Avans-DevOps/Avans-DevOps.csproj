@@ -10,8 +10,7 @@
 
   <ItemGroup>
     <Folder Include="Domain\Factory Pattern\" />
-    <Folder Include="Domain\Strategy Pattern\" />
-    <Folder Include="Domain\Notifications\" />
+    <Folder Include="Domain\Adapter Pattern\" />
   </ItemGroup>
 
 </Project>

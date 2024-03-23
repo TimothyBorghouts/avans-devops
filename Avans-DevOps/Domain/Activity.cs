@@ -18,5 +18,10 @@ namespace Avans_DevOps.Domain
             this.Developer = developer;
             IsDone = false;
         }
+
+        public void finishActivity()
+        {
+            IsDone = true;
+        }
     }
 }

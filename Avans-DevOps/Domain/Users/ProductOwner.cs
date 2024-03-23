@@ -8,7 +8,7 @@ namespace Avans_DevOps.Domain.Users
 {
     public class ProductOwner : User
     {
-        public ProductOwner(string name, string email, string password) : base(name, email, password)
+        public ProductOwner(string name, string email, string password, string notificationPlace ) : base(name, email, password, notificationPlace)
         {
         }
     }
