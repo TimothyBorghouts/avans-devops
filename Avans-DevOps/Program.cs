@@ -1,17 +1,17 @@
 ﻿using Avans_DevOps.Domain;
 using Avans_DevOps.Domain.Forum;
-using Avans_DevOps.Domain.Sprintoes;
+using Avans_DevOps.Domain.Sprint;
 using Avans_DevOps.Domain.Users;
 
 //Users
-ProductOwner timothy = new ProductOwner("Timothy", "timothy@gmail.com", "appel123", "email");
-ScrumMaster joy = new ScrumMaster("Joy", "joy@gmail.com", "druif123", "email");
-Developer matthijs = new Developer("Matthijs", "matthijs@gmail.com", "banaan123", "slack");
-Developer jaron = new Developer("Jaron", "jaron@gmail.com", "peer123", "email");
-Developer lucas = new Developer("Lucas", "lucas@gmail.com", "kiwi123", "slack");
-Tester ayrianna = new Tester("Ayrianna", "ayrianna@gmail.com" , "sinaasappel123", "email");
-Tester arno = new Tester("Arno", "arno@gmail.com" , "mango123" , "email");
-Tester ruud = new Tester("Ruud", "ruud@gmail.com" , "ananas123", "slack");
+ProductOwner timothy = new ProductOwner("Timothy", "timothy@gmail.com", "email");
+ScrumMaster joy = new ScrumMaster("Joy", "joy@gmail.com", "email");
+Developer matthijs = new Developer("Matthijs", "matthijs@gmail.com", "slack");
+Developer jaron = new Developer("Jaron", "jaron@gmail.com", "email");
+Developer lucas = new Developer("Lucas", "lucas@gmail.com", "slack");
+Tester ayrianna = new Tester("Ayrianna", "ayrianna@gmail.com","email");
+Tester arno = new Tester("Arno", "arno@gmail.com", "email");
+Tester ruud = new Tester("Ruud", "ruud@gmail.com", "slack");
 
 //Product Backlog
 ProductBacklog productBacklog = new ProductBacklog();
