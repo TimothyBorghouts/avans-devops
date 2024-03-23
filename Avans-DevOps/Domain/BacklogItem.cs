@@ -37,6 +37,11 @@ namespace Avans_DevOps.Domain
             BacklogItemState = state;
         }
 
+        public IBacklogItemState GetState()
+        {
+            return BacklogItemState;
+        }
+
         public void SetTodoState()
         {
             BacklogItemState.SetToDo();

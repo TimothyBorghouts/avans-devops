@@ -23,5 +23,10 @@ namespace Avans_DevOps.Domain
         {
             IsDone = true;
         }
+
+        public bool IsFinished()
+        {
+            return IsDone;
+        }
     }
 }
