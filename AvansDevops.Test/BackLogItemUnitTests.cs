@@ -9,9 +9,9 @@ namespace AvansDevops.Test
     {
         Mock<BacklogItem> backlogItemMock = new Mock<BacklogItem>();
 
-        private Developer mockDeveloper = new Developer("timothy", "timothy@gmail.com", "password123!", "email");
+        private Developer mockDeveloper = new Developer("timothy", "timothy@gmail.com", "email");
         private BacklogItem mockBacklogItem = new BacklogItem("inlog pagina maken",
-            new Developer("timothy", "timothy@gmail.com", "password123!", "email"));
+            new Developer("timothy", "timothy@gmail.com", "email"));
 
         [Fact]
         public void BacklogItemsCanHaveActivities()
