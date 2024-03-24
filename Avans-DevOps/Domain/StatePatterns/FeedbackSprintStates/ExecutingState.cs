@@ -1,6 +1,7 @@
 ﻿using Avans_DevOps.Domain.Sprint;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,8 @@ namespace Avans_DevOps.Domain.States.FeedbackSprintStates
 
         public void SetToCanceledState()
         {
-            throw new NotImplementedException();
+            feedbackSprint.ChangeState(new CanceledState(feedbackSprint));
+            Console.WriteLine("Feedback Sprint changed to state Canceled.");
         }
 
         public void SetToExecutingState()
@@ -28,7 +30,8 @@ namespace Avans_DevOps.Domain.States.FeedbackSprintStates
 
         public void SetToFinishedState()
         {
-            throw new NotImplementedException();
+            feedbackSprint.ChangeState(new FinishedState(feedbackSprint));
+            Console.WriteLine("Feedback Sprint changed to state Finished.");
         }
 
         public void SetToInitializationState()

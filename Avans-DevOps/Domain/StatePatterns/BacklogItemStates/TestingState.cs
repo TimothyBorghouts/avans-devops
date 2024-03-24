@@ -39,7 +39,7 @@ namespace Avans_DevOps.Domain.States.BacklogItemStates
         public void SetTested()
         {
             backlogItem.changeState(new TestedState(backlogItem));
-            Debug.WriteLine("Changed to state Tested.");
+            Console.WriteLine("Backlog Item changed to state Tested.");
         }
 
         public void SetDone()

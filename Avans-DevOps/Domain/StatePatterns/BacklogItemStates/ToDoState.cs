@@ -26,7 +26,7 @@ namespace Avans_DevOps.Domain.States.BacklogItemStates
         public void SetDoing()
         {
             backlogItem.changeState(new DoingState(backlogItem));
-            Debug.WriteLine("Changed to state Doing.");
+            Console.WriteLine("Backlog Item changed to state Doing.");
         }
 
         public void SetReadyForTesting()

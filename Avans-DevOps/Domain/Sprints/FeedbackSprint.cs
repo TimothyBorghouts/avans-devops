@@ -22,22 +22,22 @@ namespace Avans_DevOps.Domain.Sprint
             FeedbackSprintState = (IFeedbackSprintState)feedbackSprintState;
         }
 
-        public void Initialize()
+        public void SetInitializeState()
         {
             FeedbackSprintState.SetToInitializationState();
         }
 
-        public void Execute()
+        public void SetExecuteState()
         {
             FeedbackSprintState.SetToExecutingState();
         }
 
-        public void Finish()
+        public void SetFinishState()
         {
             FeedbackSprintState.SetToFinishedState();
         }
 
-        public void Cancel()
+        public void SetCancelState()
         {
             FeedbackSprintState.SetToCanceledState();
         }

@@ -9,8 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Domain\Factory Pattern\" />
-    <Folder Include="Domain\Adapter Pattern\" />
+    <Folder Include="Domain\FactoryPattern\" />
   </ItemGroup>
 
 </Project>

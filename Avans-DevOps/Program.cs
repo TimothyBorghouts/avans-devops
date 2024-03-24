@@ -68,6 +68,13 @@ forumComposite.AddReactionToThread(new Post("Hallo! Ik ben Matthijs en ik ben ee
 
 
 //Sprint States
+firstSprint.SetExecuteState();
+firstSprint.SetFinishState();
+
+secondSprint.SetCancelState();
+secondSprint.SetInitializeState();
+secondSprint.SetExecuteState();
+secondSprint.SetFinishState();
 
 //Sprint Reports
 firstSprint.ExportSprintReport("Avans Hogeschool", "logo", "Avans DevOps Sprint 1", "1.0", new DateTime(2024, 3, 30), new PdfStrategy());

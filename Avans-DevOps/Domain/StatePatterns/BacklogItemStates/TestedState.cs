@@ -19,7 +19,7 @@ namespace Avans_DevOps.Domain.States.BacklogItemStates
         public void SetToDo()
         {
             backlogItem.changeState(new ToDoState(backlogItem));
-            Debug.WriteLine("Changed to state ToDo.");
+            Console.WriteLine("Backlog Item changed to state ToDo.");
         }
 
         public void SetDoing()
@@ -30,7 +30,7 @@ namespace Avans_DevOps.Domain.States.BacklogItemStates
         public void SetReadyForTesting()
         {
            backlogItem.changeState(new ReadyForTestingState(backlogItem));
-            Debug.WriteLine("Changed to state ReadyForTesting.");
+            Console.WriteLine("Backlog Item changed to state ReadyForTesting.");
         }
 
         public void SetTesting()
@@ -52,8 +52,8 @@ namespace Avans_DevOps.Domain.States.BacklogItemStates
             {
                 throw new InvalidOperationException("Not all activities are done.");
             }
-                
-            Debug.WriteLine("Changed to state Done.");
+
+            Console.WriteLine("Changed to state Done.");
         }
     }
 }

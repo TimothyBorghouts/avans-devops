@@ -22,22 +22,22 @@ namespace Avans_DevOps.Domain.Sprint
             ReleaseSprintState = (IReleaseSprintStates)releaseSprintState;
         }
 
-        public void Initialize()
+        public void SetInitializeState()
         {
             ReleaseSprintState.SetToInitializationState();
         }
 
-        public void Execute()
+        public void SetExecuteState()
         {
             ReleaseSprintState.SetToExecutingState();
         }
 
-        public void Finish()
+        public void SetFinishState()
         {
             ReleaseSprintState.SetToFinishedState();
         }
 
-        public void Cancel()
+        public void SetCancelState()
         {
             ReleaseSprintState.SetToCanceledState();
         }

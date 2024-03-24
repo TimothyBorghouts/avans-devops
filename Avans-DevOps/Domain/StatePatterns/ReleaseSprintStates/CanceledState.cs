@@ -1,6 +1,7 @@
 ﻿using Avans_DevOps.Domain.Sprint;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,7 +33,8 @@ namespace Avans_DevOps.Domain.States.ReleaseSprintStates
 
         public void SetToInitializationState()
         {
-            throw new NotImplementedException();
+            releaseSprint.ChangeState(new InitializationState(releaseSprint));
+            Console.WriteLine("Release Sprint changed to state Initialized.");
         }
     }
 }

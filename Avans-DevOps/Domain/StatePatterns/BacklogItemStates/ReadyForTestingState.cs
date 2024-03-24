@@ -19,7 +19,7 @@ namespace Avans_DevOps.Domain.States.BacklogItemStates
         public void SetToDo()
         {
             backlogItem.changeState(new ToDoState(backlogItem));
-            Debug.WriteLine("Changed to state ToDo.");
+            Console.WriteLine("Changed to state ToDo.");
         }
 
         public void SetDoing()
@@ -35,7 +35,7 @@ namespace Avans_DevOps.Domain.States.BacklogItemStates
         public void SetTesting()
         {
             backlogItem.changeState(new TestingState(backlogItem));
-            Debug.WriteLine("Changed to state Testing.");
+            Console.WriteLine("Backlog Item changed to state Testing.");
         }
 
         public void SetTested()

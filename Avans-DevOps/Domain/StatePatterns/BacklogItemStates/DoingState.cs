@@ -29,7 +29,7 @@ namespace Avans_DevOps.Domain.States.BacklogItemStates
         public void SetReadyForTesting()
         {
             backlogItem.changeState(new ReadyForTestingState(backlogItem));
-            Debug.WriteLine("Changed to state ReadyForTesting.");
+            Console.WriteLine("Backlog Item changed to state ReadyForTesting.");
         }
 
         public void SetTesting()
