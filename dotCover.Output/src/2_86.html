@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\Software projecten\Avans-DevOps\Avans-DevOps\Program.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using Avans_DevOps.Domain;
+using Avans_DevOps.Domain.Forum;
+using Avans_DevOps.Domain.Sprint;
+using Avans_DevOps.Domain.Users;
+
+//Users
+ProductOwner timothy = new ProductOwner(&quot;Timothy&quot;, &quot;timothy@gmail.com&quot;, &quot;email&quot;);
+ScrumMaster joy = new ScrumMaster(&quot;Joy&quot;, &quot;joy@gmail.com&quot;, &quot;email&quot;);
+Developer matthijs = new Developer(&quot;Matthijs&quot;, &quot;matthijs@gmail.com&quot;, &quot;slack&quot;);
+Developer jaron = new Developer(&quot;Jaron&quot;, &quot;jaron@gmail.com&quot;, &quot;email&quot;);
+Developer lucas = new Developer(&quot;Lucas&quot;, &quot;lucas@gmail.com&quot;, &quot;slack&quot;);
+Tester ayrianna = new Tester(&quot;Ayrianna&quot;, &quot;ayrianna@gmail.com&quot;,&quot;email&quot;);
+Tester arno = new Tester(&quot;Arno&quot;, &quot;arno@gmail.com&quot;, &quot;email&quot;);
+Tester ruud = new Tester(&quot;Ruud&quot;, &quot;ruud@gmail.com&quot;, &quot;slack&quot;);
+
+//Product Backlog
+ProductBacklog productBacklog = new ProductBacklog();
+
+//Project
+Project avansDevopsProject = new Project(&quot;Avans DevOps&quot;, productBacklog, joy, timothy, new List&lt;Developer&gt; { matthijs, jaron, lucas }, new List&lt;Tester&gt; { ayrianna, arno, ruud });
+
+//Sprints
+Sprint firstSprint = new FeedbackSprint(&quot;Sprint 1&quot;, new DateTime(2024, 1, 1), new DateTime(2024, 3, 30));
+Sprint secondSprint = new ReleaseSprint(&quot;Sprint 2&quot;, new DateTime(2024, 3, 1), new DateTime(2024, 6, 30));
+Sprint thirdSprint = new FeedbackSprint(&quot;Sprint 3&quot;, new DateTime(2024, 6, 1), new DateTime(2024, 9, 30));
+Sprint fourthSprint = new ReleaseSprint(&quot;Sprint 4&quot;, new DateTime(2024, 10, 1), new DateTime(2024, 12, 30));
+
+//Backlog Items and Activities
+BacklogItem backlogItem = new BacklogItem(&quot;Inlog pagina maken&quot;, matthijs);
+Activity activity = new Activity(&quot;Database connectie maken&quot;, matthijs);
+Activity activity1 = new Activity(&quot;Backend login pagina designen&quot;, jaron);
+Activity activity2 = new Activity(&quot;Frontend login pagina designen&quot;, lucas);
+Activity activity3 = new Activity(&quot;Use cases opstellen&quot;, jaron);
+backlogItem.AddActivity(activity);
+backlogItem.AddActivity(activity1);
+backlogItem.AddActivity(activity2);
+backlogItem.AddActivity(activity3);
+
+backlogItem.SetDoingState();
+backlogItem.SetReadyForTestingState();
+backlogItem.SetTestingState();
+backlogItem.SetTestedState();
+activity.finishActivity();
+activity1.finishActivity();
+activity2.finishActivity();
+activity3.finishActivity();
+backlogItem.SetDoneState();
+
+BacklogItem backlogItem2 = new BacklogItem(&quot;Gebruikers formuleer maken&quot;, jaron);
+backlogItem2.AddActivity(new Activity(&quot;Field validation maken&quot;, lucas));
+backlogItem2.AddActivity(new Activity(&quot;Form designen&quot;, jaron));
+backlogItem2.AddActivity(new Activity(&quot;Designen van form page&quot;, lucas));
+
+
+productBacklog.addItem(backlogItem);
+productBacklog.addItem(backlogItem2);
+
+//Forum, Threads and Posts
+Forum forum = new Forum(&quot;Avans DevOps Forum&quot;);
+DiscussionThread newThread = new DiscussionThread(&quot;Welkom op het forum!&quot;);
+forum.Threads.Add(newThread);
+newThread.Posts.Add(new Post(&quot;Welkom op het forum! Hier kunnen we discussi&#235;ren over het Avans DevOps project.&quot;, timothy));
+newThread.Posts.Add(new Post(&quot;Hallo! Ik ben Matthijs en ik ben een developer.&quot;, matthijs));
+
+
+
+
+
+
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[7,1,7,82,0],[8,1,8,68,0],[9,1,9,79,0],[10,1,10,70,0],[11,1,11,70,0],[12,1,12,72,0],[13,1,13,61,0],[14,1,14,61,0],[17,1,17,54,0],[20,1,20,179,0],[23,1,23,106,0],[24,1,24,106,0],[25,1,25,106,0],[26,1,26,108,0],[29,1,29,75,0],[30,1,30,72,0],[31,1,31,75,0],[32,1,32,76,0],[33,1,33,65,0],[34,1,34,35,0],[35,1,35,36,0],[36,1,36,36,0],[37,1,37,36,0],[39,1,39,29,0],[40,1,40,39,0],[41,1,41,31,0],[42,1,42,30,0],[43,1,43,27,0],[44,1,44,28,0],[45,1,45,28,0],[46,1,46,28,0],[47,1,47,28,0],[49,1,49,81,0],[50,1,50,73,0],[51,1,51,64,0],[52,1,52,73,0],[55,1,55,37,0],[56,1,56,38,0],[59,1,59,47,0],[60,1,60,75,0],[61,1,61,30,0],[62,1,62,123,0],[63,1,63,92,0]]);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\Software projecten\Avans-DevOps\AvansDevops.Test\BackLogItemUnitTests.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using Avans_DevOps.Domain;
+using Avans_DevOps.Domain.States.BacklogItemStates;
+using Avans_DevOps.Domain.Users;
+using Moq;
+
+namespace AvansDevops.Test
+{
+    public class BackLogItemUnitTests
+    {
+        Mock&lt;BacklogItem&gt; backlogItemMock = new Mock&lt;BacklogItem&gt;();
+
+        private Developer mockDeveloper = new Developer(&quot;timothy&quot;, &quot;timothy@gmail.com&quot;, &quot;email&quot;);
+        private BacklogItem mockBacklogItem = new BacklogItem(&quot;inlog pagina maken&quot;,
+            new Developer(&quot;timothy&quot;, &quot;timothy@gmail.com&quot;, &quot;email&quot;));
+
+        [Fact]
+        public void BacklogItemsCanHaveActivities()
+        {
+            //Arrange
+            Activity activity = new Activity(&quot;buttons allignen&quot;, mockDeveloper);
+            Activity secondActivity = new Activity(&quot;buttons allignen&quot;, mockDeveloper);
+            Activity thirdActivity = new Activity(&quot;buttons allignen&quot;, mockDeveloper);
+
+            //Act
+            mockBacklogItem.AddActivity(activity);
+            mockBacklogItem.AddActivity(secondActivity);
+            mockBacklogItem.AddActivity(thirdActivity);
+
+            //Assert
+            Assert.Equal(3, mockBacklogItem.GetActivities().Count);
+        }
+
+        [Fact]
+        public void BacklogItemsCanChangeState()
+        {
+            //Arrange
+
+            //Act
+            mockBacklogItem.SetDoingState();
+
+            //Assert
+            Assert.IsType&lt;DoingState&gt;(mockBacklogItem.GetState());
+            
+        }
+
+        [Fact]
+        public void BacklogItemCannotSkipStates()
+        {
+            //Arrange
+
+            //Act
+            //No act needed BacklogItem cannot skip states, so it should throw an not implemented exception
+
+            //Assert
+            Assert.Throws&lt;NotImplementedException&gt;(() =&gt; mockBacklogItem.SetTestedState());
+        }
+
+        [Fact]
+        public void BacklogItemCanFinishActivity()
+        {
+            //Arrange
+            Activity activity = new Activity(&quot;buttons allignen&quot;, mockDeveloper);
+            mockBacklogItem.AddActivity(activity);
+
+            //Act
+            //Check if activity is not finished yet
+            Assert.False(activity.IsFinished());
+            activity.finishActivity();
+
+            //Assert
+            Assert.True(activity.IsFinished());
+        }
+
+        [Fact]
+        public void BacklogItemCannotBeFinishedWithoutFinishingAllActivities()
+        {
+            //Arrange
+            Activity activity = new Activity(&quot;buttons allignen&quot;, mockDeveloper);
+            Activity secondActivity = new Activity(&quot;buttons allignen&quot;, mockDeveloper);
+            mockBacklogItem.AddActivity(activity);
+            mockBacklogItem.AddActivity(secondActivity);
+
+            //Act
+            //Walking through the states
+            mockBacklogItem.SetDoingState();
+            mockBacklogItem.SetReadyForTestingState();
+            mockBacklogItem.SetTestingState();
+            mockBacklogItem.SetTestedState();
+
+            Assert.Throws&lt;InvalidOperationException&gt;(() =&gt; mockBacklogItem.SetDoneState());
+
+            activity.finishActivity();
+            secondActivity.finishActivity();
+
+            mockBacklogItem.SetDoneState();
+            //Assert
+            Assert.IsType&lt;DoneState&gt;(mockBacklogItem.GetState());
+        }   
+    }
+}
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[10,9,10,69,1],[12,9,12,98,1],[13,9,14,69,1],[18,9,18,10,1],[20,13,20,81,1],[21,13,21,87,1],[22,13,22,86,1],[25,13,25,51,1],[26,13,26,57,1],[27,13,27,56,1],[30,13,30,68,1],[31,9,31,10,1],[35,9,35,10,1],[39,13,39,45,1],[42,13,42,67,1],[44,9,44,10,1],[48,9,48,10,1],[55,13,55,58,1],[55,58,55,90,1],[55,90,55,92,1],[56,9,56,10,1],[60,9,60,10,1],[62,13,62,81,1],[63,13,63,51,1],[67,13,67,49,1],[68,13,68,39,1],[71,13,71,48,1],[72,9,72,10,1],[76,9,76,10,1],[78,13,78,81,1],[79,13,79,87,1],[80,13,80,51,1],[81,13,81,57,1],[85,13,85,45,1],[86,13,86,55,1],[87,13,87,47,1],[88,13,88,46,1],[90,13,90,60,1],[90,60,90,90,1],[90,90,90,92,1],[92,13,92,39,1],[93,13,93,45,1],[95,13,95,44,1],[97,13,97,66,1],[98,9,98,10,1]]);
+    </script>
+  </body>
+</html>

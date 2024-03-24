@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\Software projecten\Avans-DevOps\Avans-DevOps\Domain\State Patterns\BacklogItemStates\DoingState.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Avans_DevOps.Domain.States.BacklogItemStates
+{
+    public class DoingState : IBacklogItemState
+    {
+        BacklogItem backlogItem;
+
+        public DoingState(BacklogItem backlogItem)
+        {
+            this.backlogItem = backlogItem;
+        }
+
+        public void SetToDo()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetDoing()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetReadyForTesting()
+        {
+            backlogItem.changeState(new ReadyForTestingState(backlogItem));
+            Debug.WriteLine(&quot;Changed to state ReadyForTesting.&quot;);
+        }
+
+        public void SetTesting()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetTested()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetDone()
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[14,9,14,51,1],[15,9,15,10,1],[16,13,16,44,1],[17,9,17,10,1],[20,9,20,10,0],[21,13,21,49,0],[25,9,25,10,0],[26,13,26,49,0],[30,9,30,10,1],[31,13,31,76,1],[32,13,32,66,1],[33,9,33,10,1],[36,9,36,10,0],[37,13,37,49,0],[41,9,41,10,0],[42,13,42,49,0],[46,9,46,10,0],[47,13,47,49,0]]);
+    </script>
+  </body>
+</html>

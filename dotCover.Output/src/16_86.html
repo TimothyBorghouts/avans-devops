@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\Software projecten\Avans-DevOps\Avans-DevOps\Domain\State Patterns\BacklogItemStates\DoneState.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Avans_DevOps.Domain.States.BacklogItemStates
+{
+    public class DoneState : IBacklogItemState
+    {
+        BacklogItem backlogItem;
+
+        public DoneState(BacklogItem backlogItem)
+        {
+            this.backlogItem = backlogItem;
+        }
+
+        public void SetToDo()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetDoing()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetReadyForTesting()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetTesting()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetDone()
+        {
+            throw new NotImplementedException();
+        }
+        public void SetTested()
+        {
+            throw new NotImplementedException();
+        }
+
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[13,9,13,50,1],[14,9,14,10,1],[15,13,15,44,1],[16,9,16,10,1],[19,9,19,10,0],[20,13,20,49,0],[24,9,24,10,0],[25,13,25,49,0],[29,9,29,10,0],[30,13,30,49,0],[34,9,34,10,0],[35,13,35,49,0],[39,9,39,10,0],[40,13,40,49,0],[43,9,43,10,0],[44,13,44,49,0]]);
+    </script>
+  </body>
+</html>

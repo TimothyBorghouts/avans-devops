@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\Software projecten\Avans-DevOps\Avans-DevOps\Domain\State Patterns\BacklogItemStates\ReadyForTestingState.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Avans_DevOps.Domain.States.BacklogItemStates
+{
+    public class ReadyForTestingState : IBacklogItemState
+    {
+        BacklogItem backlogItem;
+
+        public ReadyForTestingState(BacklogItem backlogItem)
+        {
+            this.backlogItem = backlogItem;
+        }
+
+        public void SetToDo()
+        {
+            backlogItem.changeState(new ToDoState(backlogItem));
+            Debug.WriteLine(&quot;Changed to state ToDo.&quot;);
+        }
+
+        public void SetDoing()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetReadyForTesting()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetTesting()
+        {
+            backlogItem.changeState(new TestingState(backlogItem));
+            Debug.WriteLine(&quot;Changed to state Testing.&quot;);
+        }
+
+        public void SetTested()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetDone()
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[14,9,14,61,1],[15,9,15,10,1],[16,13,16,44,1],[17,9,17,10,1],[20,9,20,10,0],[21,13,21,65,0],[22,13,22,55,0],[23,9,23,10,0],[26,9,26,10,0],[27,13,27,49,0],[31,9,31,10,0],[32,13,32,49,0],[36,9,36,10,1],[37,13,37,68,1],[38,13,38,58,1],[39,9,39,10,1],[42,9,42,10,0],[43,13,43,49,0],[47,9,47,10,0],[48,13,48,49,0]]);
+    </script>
+  </body>
+</html>
