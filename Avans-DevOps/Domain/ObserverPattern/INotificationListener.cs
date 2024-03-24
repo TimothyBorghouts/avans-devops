@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Avans_DevOps.Domain.States.FeedbackSprintStates
+namespace Avans_DevOps.Domain.ObserverPattern
 {
-    public class ExecutingState
+    public interface INotificationListener
     {
+        public void Update(string message);
     }
 }

@@ -2,6 +2,7 @@
 using Avans_DevOps.Domain.CompositePattern.ForumCompositePattern;
 using Avans_DevOps.Domain.Forum;
 using Avans_DevOps.Domain.Sprint;
+using Avans_DevOps.Domain.Strategy_Pattern;
 using Avans_DevOps.Domain.Users;
 
 //Users
@@ -21,12 +22,12 @@ ProductBacklog productBacklog = new ProductBacklog();
 Project avansDevopsProject = new Project("Avans DevOps", productBacklog, joy, timothy, new List<Developer> { matthijs, jaron, lucas }, new List<Tester> { ayrianna, arno, ruud });
 
 //Sprints
-Sprint firstSprint = new FeedbackSprint("Sprint 1", new DateTime(2024, 1, 1), new DateTime(2024, 3, 30));
-Sprint secondSprint = new ReleaseSprint("Sprint 2", new DateTime(2024, 3, 1), new DateTime(2024, 6, 30));
-Sprint thirdSprint = new FeedbackSprint("Sprint 3", new DateTime(2024, 6, 1), new DateTime(2024, 9, 30));
-Sprint fourthSprint = new ReleaseSprint("Sprint 4", new DateTime(2024, 10, 1), new DateTime(2024, 12, 30));
+FeedbackSprint firstSprint = new FeedbackSprint("Sprint 1", new DateTime(2024, 1, 1), new DateTime(2024, 3, 30));
+ReleaseSprint secondSprint = new ReleaseSprint("Sprint 2", new DateTime(2024, 3, 1), new DateTime(2024, 6, 30));
+FeedbackSprint thirdSprint = new FeedbackSprint("Sprint 3", new DateTime(2024, 6, 1), new DateTime(2024, 9, 30));
+ReleaseSprint fourthSprint = new ReleaseSprint("Sprint 4", new DateTime(2024, 10, 1), new DateTime(2024, 12, 30));
 
-//Backlog Items and Activities
+//Backlog Items, States and Activities
 BacklogItem backlogItem = new BacklogItem("Inlog pagina maken", matthijs);
 Activity activity = new Activity("Database connectie maken", matthijs);
 Activity activity1 = new Activity("Backend login pagina designen", jaron);
@@ -64,3 +65,10 @@ ForumComposite forumComposite = new ForumComposite();
 forumComposite.AddThread(newThread, forum);
 forumComposite .AddReactionToThread(new Post("Welkom op het forum! Hier kunnen we discussiëren over het Avans DevOps project.", timothy), newThread);
 forumComposite.AddReactionToThread(new Post("Hallo! Ik ben Matthijs en ik ben een developer.", matthijs), newThread);
+
+
+//Sprint States
+
+//Sprint Reports
+firstSprint.ExportSprintReport("Avans Hogeschool", "logo", "Avans DevOps Sprint 1", "1.0", new DateTime(2024, 3, 30), new PdfStrategy());
+secondSprint.ExportSprintReport("Avans Hogeschool", "logo", "Avans DevOps Sprint 2", "2.0", new DateTime(2024, 6, 30), new PngStrategy());

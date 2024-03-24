@@ -8,5 +8,9 @@ namespace Avans_DevOps.Domain.States.ReleaseSprintStates
 {
     public interface IReleaseSprintStates
     {
+        public void SetToInitializationState();
+        public void SetToExecutingState();
+        public void SetToFinishedState();
+        public void SetToCanceledState();
     }
 }

@@ -8,5 +8,9 @@ namespace Avans_DevOps.Domain.States.FeedbackSprintStates
 {
     public interface IFeedbackSprintState
     {
+        public void SetToInitializationState();
+        public void SetToExecutingState();
+        public void SetToFinishedState();
+        public void SetToCanceledState();
     }
 }

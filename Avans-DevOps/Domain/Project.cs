@@ -16,8 +16,6 @@ namespace Avans_DevOps.Domain
         private ProductBacklog productBacklog { get; set; }
         //private Forum forum { get; set; }
 
-
-
         private List<Pipeline> pipelines { get; set; }
 
         private ScrumMaster scrumMaster { get; set; }
