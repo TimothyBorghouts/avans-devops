@@ -1,4 +1,5 @@
 ﻿using Avans_DevOps.Domain;
+using Avans_DevOps.Domain.CompositePattern.ForumCompositePattern;
 using Avans_DevOps.Domain.Forum;
 using Avans_DevOps.Domain.Sprint;
 using Avans_DevOps.Domain.Users;
@@ -58,12 +59,8 @@ productBacklog.addItem(backlogItem2);
 //Forum, Threads and Posts
 Forum forum = new Forum("Avans DevOps Forum");
 DiscussionThread newThread = new DiscussionThread("Welkom op het forum!");
-forum.Threads.Add(newThread);
-newThread.Posts.Add(new Post("Welkom op het forum! Hier kunnen we discussiëren over het Avans DevOps project.", timothy));
-newThread.Posts.Add(new Post("Hallo! Ik ben Matthijs en ik ben een developer.", matthijs));
+ForumComposite forumComposite = new ForumComposite();
 
-
-
-
-
-
+forumComposite.AddThread(newThread, forum);
+forumComposite .AddReactionToThread(new Post("Welkom op het forum! Hier kunnen we discussiëren over het Avans DevOps project.", timothy), newThread);
+forumComposite.AddReactionToThread(new Post("Hallo! Ik ben Matthijs en ik ben een developer.", matthijs), newThread);
