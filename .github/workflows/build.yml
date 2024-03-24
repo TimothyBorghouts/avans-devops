@@ -45,4 +45,5 @@ jobs:
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"TimothyBorghouts_avans-devops" /o:"timothyborghouts" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           dotnet build .\Avans-DevOps\Avans-DevOps.csproj
+	  dotnet test .\AvansDevops.Test\AvansDevops.Test.csproj 
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
