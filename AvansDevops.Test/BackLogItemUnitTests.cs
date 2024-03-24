@@ -56,20 +56,37 @@ namespace AvansDevops.Test
         }
 
         [Fact]
-        public void BacklogItemCanFinishActivity()
+        public void ActivtiesCanFinish()
         {
             //Arrange
             Activity activity = new Activity("buttons allignen", mockDeveloper);
             mockBacklogItem.AddActivity(activity);
 
             //Act
-            //Check if activity is not finished yet
-            Assert.False(activity.IsFinished());
             activity.finishActivity();
 
             //Assert
             Assert.True(activity.IsFinished());
         }
+
+        [Fact]
+        public void BacklogItemCanOnlyBeFinishedWhenActivitiesAreFinished()
+        {
+            //Arrange
+            Activity activity = new Activity("buttons allignen", mockDeveloper);
+            mockBacklogItem.AddActivity(activity);
+
+            //Act
+            mockBacklogItem.SetDoingState();
+            mockBacklogItem.SetReadyForTestingState();
+            mockBacklogItem.SetTestingState();
+            mockBacklogItem.SetTestedState();
+            activity.finishActivity();
+            mockBacklogItem.SetDoneState();
+
+            //Assert
+            Assert.IsType<DoneState>(mockBacklogItem.GetState());
+        }   
 
         [Fact]
         public void BacklogItemCannotBeFinishedWithoutFinishingAllActivities()
@@ -87,14 +104,8 @@ namespace AvansDevops.Test
             mockBacklogItem.SetTestingState();
             mockBacklogItem.SetTestedState();
 
-            Assert.Throws<InvalidOperationException>(() => mockBacklogItem.SetDoneState());
-
-            activity.finishActivity();
-            secondActivity.finishActivity();
-
-            mockBacklogItem.SetDoneState();
             //Assert
-            Assert.IsType<DoneState>(mockBacklogItem.GetState());
+            Assert.Throws<InvalidOperationException>(() => mockBacklogItem.SetDoneState());
         }   
     }
 }
