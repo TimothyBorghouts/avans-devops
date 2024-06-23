@@ -28,6 +28,11 @@ namespace Avans_DevOps.Domain.Strategy_Pattern
             this.Date = Date;
         }
 
+        public void AddTeamMember(User user)
+        {
+            team.Add(user);
+        }
+
         public void Export()
         {
             ExportStrategy.Export(this);
