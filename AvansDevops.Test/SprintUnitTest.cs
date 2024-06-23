@@ -63,5 +63,16 @@ namespace AvansDevops.Test
             //Assert
             Assert.Throws<NotImplementedException>(() => mockFeedbackSprint.SetInitializeState());
         }
+
+        [Fact]
+        public void SprintCannotGoBackToCanceledState()
+        {
+            //Arrange
+
+            //Act
+            mockFeedbackSprint.SetCancelState();
+            //Assert
+            Assert.IsType<CanceledState>(mockFeedbackSprint.FeedbackSprintState);
+        }
     }
 }
