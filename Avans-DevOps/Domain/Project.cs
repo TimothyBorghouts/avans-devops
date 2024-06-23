@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Avans_DevOps.Domain.Forum;
+using Avans_DevOps.Domain.VisitorPattern;
 
 
 namespace Avans_DevOps.Domain
