@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Avans_DevOps.Domain.ObserverPattern;
 using Avans_DevOps.Domain.States.BacklogItemStates;
 using Avans_DevOps.Domain.Users;
 
 
 namespace Avans_DevOps.Domain
 {
-    public class BacklogItem
+    public class BacklogItem : IObservable
     {
         IBacklogItemState ToDoState;
         IBacklogItemState DoingState;
@@ -18,6 +18,7 @@ namespace Avans_DevOps.Domain
         IBacklogItemState TestingState;
         IBacklogItemState TestedState;
         IBacklogItemState DoneState;
+        INotificationListener NotificationListener;
 
         private string Name { get; set; }
         private List<Activity> Activities { get; }
@@ -97,6 +98,21 @@ namespace Avans_DevOps.Domain
                 }
             }
             return true;
-        }   
+        }
+
+        public void subscribe()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void unsubscribe()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void notify()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

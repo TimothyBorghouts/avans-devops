@@ -107,5 +107,38 @@ namespace AvansDevops.Test
             //Assert
             Assert.Throws<InvalidOperationException>(() => mockBacklogItem.SetDoneState());
         }   
+
+        [Fact]
+        public void SubscribeThrowsNotImplementedException()
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
+            Assert.Throws<NotImplementedException>(() => mockBacklogItem.subscribe());
+        }
+
+        [Fact]
+        public void UnsubscribeThrowsNotImplementedException()
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
+            Assert.Throws<NotImplementedException>(() => mockBacklogItem.unsubscribe());
+        }
+
+        [Fact]
+        public void NotifyThrowsNotImplementedException()
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
+            Assert.Throws<NotImplementedException>(() => mockBacklogItem.notify());
+        }
     }
 }
