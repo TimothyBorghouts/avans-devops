@@ -4,27 +4,17 @@ namespace Avans_DevOps.Domain.CompositePattern.ForumCompositePattern
 {
     public class ForumComposite
     {
-        public void AddThread(DiscussionThread thread, Forum.Forum forum )
-        {
-            forum.Threads.Add(thread);
-        }
-
-        public void RemoveThread(DiscussionThread thread, Forum.Forum forum)
-        {
-            forum.Threads.Remove(thread);
-        }
-
-        public List<DiscussionThread> GetAllThreadsFromForum(Forum.Forum forum)
-        {
-            return forum.Threads;
-        }
-
-        public void AddReactionToThread(Post post, DiscussionThread thread)
+        public void AddPost(Post post, DiscussionThread thread)
         {
             thread.Posts.Add(post);
         }
 
-        public List<Post> GetAllReactionsFromThread(DiscussionThread thread)
+        public void RemovePost(Post post, DiscussionThread thread)
+        {
+            thread.Posts.Remove(post);
+        }
+
+        public List<Post> GetAllThreadsPosts(DiscussionThread thread)
         {
             return thread.Posts;
         }

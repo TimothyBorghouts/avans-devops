@@ -62,9 +62,9 @@ Forum forum = new Forum("Avans DevOps Forum");
 DiscussionThread newThread = new DiscussionThread("Welkom op het forum!");
 ForumComposite forumComposite = new ForumComposite();
 
-forumComposite.AddThread(newThread, forum);
-forumComposite .AddReactionToThread(new Post("Welkom op het forum! Hier kunnen we discussiëren over het Avans DevOps project.", timothy), newThread);
-forumComposite.AddReactionToThread(new Post("Hallo! Ik ben Matthijs en ik ben een developer.", matthijs), newThread);
+forum.AddThread(newThread);
+forumComposite.AddPost(new Post("Welkom op het forum! Hier kunnen we discussiëren over het Avans DevOps project.", timothy), newThread);
+forumComposite.AddPost(new Post("Hallo! Ik ben Matthijs en ik ben een developer.", matthijs), newThread);
 
 
 //Sprint States

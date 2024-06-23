@@ -15,13 +15,15 @@ namespace AvansDevops.Test
         {
             //Arrange
             DiscussionThread thread = new DiscussionThread("First thread");
+            DiscussionThread thread2 = new DiscussionThread("First thread");
 
             //Act
-            mockForumComposite.AddThread(thread, mockForum);
+            mockForum.AddThread(thread);
+            mockForum.AddThread(thread2);
 
             //Assert
-            Assert.Equal(1, mockForum.Threads.Count);
-            Assert.Equal(1, mockForumComposite.GetAllThreadsFromForum(mockForum).Count);
+            Assert.Equal(2, mockForum.Threads.Count);
+            Assert.Equal(2, mockForum.GetAllThreads().Count);
         }
 
         [Fact]
@@ -29,14 +31,16 @@ namespace AvansDevops.Test
         {
             //Arrange
             DiscussionThread thread = new DiscussionThread("First thread");
-            DiscussionThread secondThread = new DiscussionThread("Second thread");
+            DiscussionThread thread2 = new DiscussionThread("Second thread");
 
             //Act
-            mockForumComposite.AddThread(thread, mockForum);
-            mockForumComposite.AddThread(secondThread, mockForum);
+            mockForum.AddThread(thread);
+            mockForum.AddThread(thread2);
 
             //Assert
-            Assert.Equal(2, mockForumComposite.GetAllThreadsFromForum(mockForum).Count);
+            Assert.Equal(2, mockForum.GetAllThreads().Count);
+            Assert.Equal("First thread", mockForum.GetAllThreads()[0].Title);
+            Assert.Equal("Second thread", mockForum.GetAllThreads()[1].Title);
         }
 
         [Fact]
@@ -47,11 +51,11 @@ namespace AvansDevops.Test
             Post post = new Post("First post", mockDeveloper);
 
             //Act
-            mockForumComposite.AddThread(thread, mockForum);
-            mockForumComposite.AddReactionToThread(post, thread);
+            mockForum.AddThread(thread);
+            mockForumComposite.AddPost(post, thread);
 
             //Assert
-            Assert.Equal(1, thread.Posts.Count);
+            Assert.Single(mockForumComposite.GetAllThreadsPosts(thread));
         }
 
         [Fact]
@@ -63,26 +67,44 @@ namespace AvansDevops.Test
             Post secondPost = new Post("Second post", mockDeveloper);
 
             //Act
-            mockForumComposite.AddThread(thread, mockForum);
-            mockForumComposite.AddReactionToThread(post, thread);
-            mockForumComposite.AddReactionToThread(secondPost, thread);
+            mockForum.AddThread(thread);
+            mockForumComposite.AddPost(post, thread);
+            mockForumComposite.AddPost(secondPost, thread);
 
             //Assert
-            Assert.Equal(2, mockForumComposite.GetAllReactionsFromThread(thread).Count);
+            Assert.Equal(2, mockForumComposite.GetAllThreadsPosts(thread).Count);
         }
 
         [Fact]
-        public void ForumCanRemoveThreads()
+        public void ForumCanRemovePost()
         {
             //Arrange
             DiscussionThread thread = new DiscussionThread("First thread");
+            Post post = new Post("First post", mockDeveloper);
 
             //Act
-            mockForumComposite.AddThread(thread, mockForum);
-            mockForumComposite.RemoveThread(thread, mockForum);
+            mockForum.AddThread(thread);
+            mockForumComposite.AddPost(post, thread);
+            mockForumComposite.RemovePost(post, thread);
 
             //Assert
-            Assert.Empty(mockForumComposite.GetAllThreadsFromForum(mockForum));
+            Assert.Empty(mockForumComposite.GetAllThreadsPosts(thread));
+        }
+
+        [Fact]
+        public void ForumCanRemoveThread()
+        {
+            //Arrange
+            DiscussionThread thread = new DiscussionThread("First thread");
+            DiscussionThread thread2 = new DiscussionThread("Second thread");
+
+            //Act
+            mockForum.AddThread(thread);
+            mockForum.AddThread(thread2);
+            mockForum.RemoveThread(thread);
+
+            //Assert
+            Assert.Single(mockForum.Threads);
         }
     }
 }

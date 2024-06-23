@@ -13,5 +13,20 @@ namespace Avans_DevOps.Domain.Forum
             Title = title;
             Threads = new List<DiscussionThread>();
         }
+
+        public List<DiscussionThread> GetAllThreads()
+        {
+           return Threads;
+        }
+
+        public void AddThread(DiscussionThread thread)
+        {
+            Threads.Add(thread);
+        }
+
+        public void RemoveThread(DiscussionThread thread)
+        {
+            Threads.Remove(thread);
+        }
     }
 }
