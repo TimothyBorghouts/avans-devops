@@ -18,6 +18,10 @@ namespace Avans_DevOps.Domain.Users
             Email = email;
             NotificationPlace = notificationPlace;
         }
+        public string GetName()
+        {
+            return Name;
+        }
 
     }
 }
