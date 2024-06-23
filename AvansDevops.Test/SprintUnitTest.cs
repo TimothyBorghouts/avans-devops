@@ -74,5 +74,40 @@ namespace AvansDevops.Test
             //Assert
             Assert.IsType<CanceledState>(mockFeedbackSprint.FeedbackSprintState);
         }
+
+        [Fact]
+        public void ReleaseSprintCannotSkipToFinishedState()
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
+            Assert.Throws<NotImplementedException>(() => mockReleaseSprint.SetFinishState());
+        }
+
+        [Fact]
+        public void ReleaseSprintCannotGoBackToInitializationState()
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
+            Assert.Throws<NotImplementedException>(() => mockReleaseSprint.SetInitializeState());
+        }
+
+        [Fact]
+        public void SprintCanChangeToFinishedState()
+        {
+            //Arrange
+
+            //Act
+            mockFeedbackSprint.SetExecuteState();
+            mockFeedbackSprint.SetFinishState();
+
+            //Assert
+            Assert.IsType<FinishedState>(mockFeedbackSprint.FeedbackSprintState);
+        }
     }
 }
